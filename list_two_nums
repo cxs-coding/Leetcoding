@@ -29,11 +29,11 @@ public:
 			currentNode->next = new ListNode(sum%10);
 			currentNode = currentNode->next;
            
-            if (increment>0)
-	        {
-			    currentNode->next = new ListNode(increment);
-            }
-        }
-        return result->next; 
+            		if (increment>0)
+	        	{
+				currentNode->next = new ListNode(increment);
+            		}
+        	}
+        	return result->next; 
     }
 };
