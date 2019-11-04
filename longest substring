@@ -1,0 +1,18 @@
+int lengthOfLongestSubstring(char * s){
+    char *str = NULL, *str_tmp = NULL;
+    int len_str = 0, len_s = 0;
+    unsigned int i, j, k = 0;
+    
+    len_s = strlen(s);
+    for (i = 0; i < len_s; i++) {  //遍历字符串,前n个字符
+        for (j = k; j < i; j++) {  //前n-1个字符
+            if (s[i] == s[j]) {
+                k = j + 1;
+                break;
+            }
+        } 
+        if(i - k + 1 > len_str)
+            len_str = i - k + 1;
+    }
+    return len_str;
+}
