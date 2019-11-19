@@ -1,0 +1,34 @@
+int myAtoi(char * str){
+    long ret = 0, flag = 0;
+
+    while (*str == ' ')
+        str++;
+    if (*str == '+') {
+        flag = 0;
+        str++;
+    } else if (*str == '-') {
+        flag = 1;
+        str++;
+    }
+
+    while (str != NULL) { 
+        if (*str >= '0' && *str <= '9') {
+            ret = ret * 10 + (*str - '0');
+            if (ret > INT_MAX) {
+                if (!flag)
+                    return INT_MAX;
+                else 
+                    return INT_MIN;
+            }
+        } else
+            break;
+        str++;
+    }
+
+    if (!flag)
+        return ret;
+    else
+        return ret = -ret;  
+
+    return ret;  
+}
